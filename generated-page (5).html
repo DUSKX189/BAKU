@@ -1,0 +1,1006 @@
+<html lang="es" class="scroll-smooth overflow-x-hidden w-full"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BAKU | Dessert Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+-webkit-font-smoothing: antialiased;
+background-color: #ffffff;
+overflow-x: hidden;
+width: 100%;
+max-width: 100vw;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e4e4e7; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+/* Animations */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+/* Marquee */
+@keyframes marquee {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+display: flex;
+width: fit-content;
+animation: marquee 20s linear infinite;
+}
+@media (min-width: 768px) {
+.animate-marquee { animation-duration: 40s; }
+}
+/* Utility */
+.tracking-tighter-custom { letter-spacing: -0.04em; }
+.tracking-widest-custom { letter-spacing: 0.15em; }
+/* Grid Layout Fixes */
+.product-grid-layout {
+display: grid;
+grid-template-columns: 280px minmax(0, 1fr); /* Increased sidebar width */
+gap: 60px; /* Increased gap */
+width: 100%;
+}
+@media (max-width: 1024px) {
+.product-grid-layout {
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 32px;
+}
+}
+/* Hide scrollbar for category pills */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+/* Text Reveal */
+.text-reveal-content {
+transform: translateY(120%);
+transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+will-change: transform;
+}
+.is-visible .text-reveal-content { transform: translateY(0); }
+/* Force Image Override */
+.force-img-contain {
+max-width: 100% !important;
+width: 100%;
+}
+/* Minimalist Input Reset */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style></head>
+<body class="min-h-screen flex flex-col selection:bg-black selection:text-white text-black w-full overflow-x-hidden max-w-[100vw]">
+
+    <!-- Navigation -->
+    <header class="fixed z-40 transition-all duration-300 bg-white/95 w-full border-black/5 border-b top-0 backdrop-blur-sm">
+        <div class="md:px-12 flex md:h-20 md:pr-6 md:pl-6 w-full h-16 border-zinc-400 border pr-4 pl-4 items-center justify-between">
+            <!-- Logo -->
+            <button onclick="router('home')" class="hover:opacity-70 transition-opacity flex bg-center text-xl md:text-2xl font-bold tracking-tighter-custom bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c3140926-c0d2-4355-8485-acd90b296add_320w.png)] bg-cover pt-3 md:pt-4 pr-8 md:pr-10 pb-3 md:pb-4 pl-8 md:pl-10 items-start"></button>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-x-12 gap-y-x-12 items-center">
+                <button onclick="router('home')" class="text-[11px] uppercase hover:text-zinc-500 transition-colors tracking-widest-custom text-black font-bold" id="nav-home">Home</button>
+                <button onclick="router('productos')" class="text-[11px] uppercase hover:text-zinc-500 transition-colors font-medium text-zinc-700 tracking-widest-custom" id="nav-productos">Productos</button>
+                <button onclick="router('nosotros')" class="text-[11px] uppercase hover:text-zinc-500 transition-colors font-medium text-zinc-700 tracking-widest-custom" id="nav-nosotros">Nosotros</button>
+                <button onclick="router('contacto')" class="text-[11px] uppercase hover:text-zinc-500 transition-colors font-medium text-zinc-700 tracking-widest-custom" id="nav-contacto">Contacto</button>
+                
+                <!-- CUSTOM CART TRIGGER (Opens Drawer) -->
+                <button onclick="toggleCartDrawer()" class="text-[11px] uppercase hover:text-zinc-500 transition-colors flex gap-1 group font-medium text-zinc-700 tracking-widest-custom gap-x-1 gap-y-1 items-center">
+                    Cesta (<span id="custom-cart-count" class="group-hover:text-black transition-colors">5</span>)
+                </button>
+            </nav>
+
+            <!-- Mobile Controls -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button onclick="toggleCartDrawer()" class="text-[11px] uppercase font-bold tracking-widest-custom">
+                    (<span id="mobile-cart-count">5</span>)
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-6 h-6 stroke-[1.5]"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white transform translate-y-full transition-transform duration-500 flex flex-col pt-24 px-6 h-screen w-screen overflow-hidden">
+        <button onclick="toggleMobileMenu()" class="absolute top-4 right-4 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" class="lucide lucide-x w-8 h-8 stroke-[1.5]"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+        <nav class="flex flex-col gap-6 mt-8">
+            <button onclick="router('home'); toggleMobileMenu()" class="text-4xl md:text-6xl font-semibold tracking-tighter text-left py-2 border-b border-zinc-100">Home</button>
+            <button onclick="router('productos'); toggleMobileMenu()" class="text-4xl md:text-6xl font-semibold tracking-tighter text-left py-2 border-b border-zinc-100">Productos</button>
+            <button onclick="router('nosotros'); toggleMobileMenu()" class="text-4xl md:text-6xl font-semibold tracking-tighter text-left py-2 border-b border-zinc-100">Nosotros</button>
+            <button onclick="router('contacto'); toggleMobileMenu()" class="text-4xl md:text-6xl font-semibold tracking-tighter text-left py-2 border-b border-zinc-100">Contacto</button>
+        </nav>
+        <div class="mt-auto mb-12">
+            <p class="text-zinc-400 text-sm uppercase tracking-widest">Baku Dessert Studio</p>
+        </div>
+    </div>
+
+    <!-- CART DRAWER (REDESIGNED MINIMALIST) -->
+    <div id="cart-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-50 opacity-0 pointer-events-none transition-opacity duration-500"></div>
+    
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-[500px] bg-white text-black z-[60] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col shadow-2xl border-l border-zinc-200">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 md:p-8 border-b border-zinc-100">
+            <h2 class="text-xs font-bold tracking-widest-custom uppercase text-black">Tu Cesta</h2>
+            <button onclick="toggleCartDrawer()" class="p-2 hover:bg-zinc-50 rounded-full transition-colors group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5 stroke-[1.5] text-black group-hover:rotate-90 transition-transform"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col gap-6">
+                <div class="flex gap-4 items-start animate-fade-in">
+                    <div class="w-20 aspect-[3/4] bg-zinc-50 flex-shrink-0 overflow-hidden border border-zinc-100">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover mix-blend-multiply">
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between min-h-[5rem]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-sm font-bold uppercase tracking-tight text-black leading-none">Red Velvet Cake</h3>
+                            <span class="text-sm font-medium text-black ml-2">12.00 €</span>
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <div class="flex items-center border border-zinc-200 h-8">
+                                <button onclick="updateCartItemQuantity('gid://shopify/CartLine/edef1fc7-d19a-4d43-bb66-6734a8db9663?cart=hWN6j2CA4Azs0OdzyPR3sO9L', 4)" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path></svg>
+                                </button>
+                                <span class="w-8 h-full flex items-center justify-center text-xs font-medium text-black border-l border-r border-zinc-100">5</span>
+                                <button onclick="updateCartItemQuantity('gid://shopify/CartLine/edef1fc7-d19a-4d43-bb66-6734a8db9663?cart=hWN6j2CA4Azs0OdzyPR3sO9L', 6)" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+
+        <!-- Footer -->
+        <div class="border-t border-zinc-100 p-6 md:p-8 bg-white space-y-4">
+            <div class="flex justify-between items-end mb-2">
+                <span class="text-xs text-zinc-500 uppercase tracking-widest">Subtotal</span>
+                <span id="cart-subtotal" class="text-xl font-semibold tracking-tight text-black">60,00 €</span>
+            </div>
+            <p class="text-[10px] text-zinc-400 mb-6 leading-relaxed">
+                Impuestos incluidos.
+            </p>
+            <button id="checkout-btn" onclick="goToCheckout()" class="w-full bg-black text-white font-bold text-xs uppercase tracking-widest-custom py-5 hover:opacity-80 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 rounded-none">
+                <span>Pagar Pedido</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="app-content" class="flex-grow relative min-h-screen w-full overflow-x-hidden pt-16 md:pt-20 max-w-[100vw]">
+        
+        <!-- HOME VIEW -->
+        <div class="page-view overflow-hidden w-full animate-fade-in" id="view-home">
+            <section class="h-[calc(100vh-64px)] md:h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-black">
+                <div class="z-0 absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1516919549054-e08258825f80?q=80&amp;w=2560" class="object-center w-full h-full object-cover opacity-80" alt="Dessert Studio Background" id="hero-bg-image">
+                    <div class="bg-black/30 absolute top-0 right-0 bottom-0 left-0"></div>
+                </div>
+                <div class="select-none cursor-default text-white text-center w-full relative px-4">
+                    <h1 class="text-[15vw] md:text-[12vw] leading-[0.85] flex flex-col items-center justify-center font-bold tracking-tighter w-full">
+                        <span class="block">DESSERT</span>
+                        <span class="relative">STUDIO</span>
+                    </h1>
+                </div>
+            </section>
+
+            <!-- Philosophy -->
+            <section class="grid grid-cols-1 md:grid-cols-2 bg-white w-full max-w-none">
+                <div class="flex flex-col order-2 md:pt-9 md:pb-9 md:pl-16 md:order-1 md:pr-16 pt-12 pr-6 pb-6 pl-6 justify-center">
+                    <h2 class="leading-[0.9] uppercase md:text-7xl md:mb-14 lg:text-8xl text-4xl font-semibold text-black tracking-tighter mb-6">Handmade Bread with a Modern Vision</h2>
+                    <p class="leading-relaxed text-base md:text-xl md:mb-14 font-normal text-zinc-500 text-left max-w-lg mb-8">Exploramos la intersección entre la panadería artesanal tradicional y la estéticacontemporánea. Ingredientes puros, tiempo y diseño.</p>
+                    <div class="">
+                        <button onclick="router('nosotros')" class="text-xs font-semibold uppercase tracking-widest border-b-[1.5px] border-black pb-0.5 hover:text-zinc-600 hover:border-zinc-600 transition-colors">
+                            Conoce nuestra historia
+                        </button>
+                    </div>
+                </div>
+                <div class="flex md:p-12 order-1 md:order-2 md:border-b-0 bg-white w-full border-zinc-100 border-b pt-6 pr-6 pb-6 pl-6 relative items-center justify-center">
+                    <div class="relative w-full aspect-square md:aspect-auto md:h-full min-h-[300px] flex items-center justify-center overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f817f7b7-4802-46be-9931-25fbe59366e8_3840w.jpg" class="object-center md:max-w-full mix-blend-multiply w-full h-auto max-w-full object-contain" alt="Baku Products">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Philosophy (Redesigned "Menos Azúcar") -->
+            <section class="md:px-12 bg-white w-full border-black/10 border-b pt-24 pr-6 pb-24 pl-6">
+              <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+                <!-- Left Text -->
+                <div class="flex flex-col order-2 md:order-1 justify-center">
+                    <span class="uppercase text-sm font-semibold text-zinc-400 tracking-widest mb-8">NUESTRA FILOSOFÍA</span>
+                    <h2 class="md:text-7xl lg:text-8xl leading-[0.9] text-6xl font-semibold text-black tracking-tighter mb-10" style="">MENOS AZÚCAR,MÁS SABOR REAL</h2>
+                    <p class="leading-relaxed md:text-base text-lg font-light text-zinc-600 max-w-2xl mb-16">
+                        En BAKU trabajamos con pocos ingredientes y mucha intención. Creemos en una pastelería que no oculta su sabor, sino que lo revela: frutas de temporada, harinas honestas y técnicas precisas. Cada pieza nace de un proceso elaborado esculpida a mano y pensada para que su forma sea tan pura como su sabor.
+                    </p>
+                    <div class="flex gap-24 border-t border-black/5 pt-10">
+                        <div class="">
+                            <span class="block md:text-6xl text-5xl font-semibold tracking-tighter mb-2">24h</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">FERMENTACIÓN</span>
+                        </div>
+                        <div class="">
+                            <span class="block md:text-6xl text-5xl font-semibold tracking-tighter mb-2">100%</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">NATURAL</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Image -->
+                <div class="flex order-1 md:order-2 h-full items-center justify-center">
+                     <div class="relative w-full aspect-square flex items-center justify-center">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/02ea7ead-dbcc-4df2-a28a-ccfb47c31ced_1600w.png" class="mix-blend-multiply w-full h-auto max-w-full object-contain scale-110">
+                     </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Marquee Section -->
+            
+
+            <!-- Featured Products -->
+            <section class="overflow-hidden bg-white border-black/10 border-b">
+                <div class="overflow-hidden z-20 md:py-4 bg-black w-full border-black/10 border-t border-b pt-3 pb-3 relative">
+                <div class="flex animate-marquee whitespace-nowrap text-white items-center" id="marquee-track-2">
+                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
+                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
+                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
+                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
+                    </div>
+            </div><div class="md:px-12 md:pt-24 md:pb-12 pt-12 pr-6 pb-8 pl-6">
+                    <h2 class="md:text-8xl md:mb-6 text-4xl font-semibold text-black tracking-tighter mb-4" style="">SIGNATURE PRODUCTS</h2>
+                    <p class="md:text-lg leading-relaxed text-base font-light text-black max-w-md">
+                        Una selección de nuestras piezas más representativas, elegidas por quienes más disfrutan de nuestro estudio.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 md:px-12 md:pb-24 pr-6 pb-12 pl-6 gap-x-6 gap-y-6" id="home-featured-grid">
+                <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('Red Velvet Cake')">
+                     <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
+                     </div>
+                     <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Red Velvet Cake</h3></div>
+                </div>
+            
+                <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('Lemon pie')">
+                     <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
+                     </div>
+                     <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Lemon pie</h3></div>
+                </div>
+            </div>
+            </section><div class="overflow-hidden md:py-4 z-20 bg-black w-full border-black/10 border-t border-b pt-3 pb-3 relative">
+                <div class="flex animate-marquee whitespace-nowrap text-white items-center" id="marquee-track"><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">20% OFF SIGNATURE PRODUCTS</span></div>
+            </div>
+
+             <!-- Contact Teaser -->
+             <section class="grid grid-cols-1 md:grid-cols-2 overflow-hidden bg-white w-full border-black/10 border-b">
+                <div class="md:p-24 flex flex-col md:border-r md:border-b-0 border-black/10 border-b pt-8 pr-8 pb-8 pl-8 justify-center">
+                    <div class="mb-8">
+                        <span class="text-[10px] uppercase font-semibold text-zinc-400 tracking-widest-custom block">(CONTACTO)</span>
+                    </div>
+                    <h2 class="leading-[0.85] text-5xl md:text-8xl lg:text-9xl font-semibold tracking-tighter mb-8 md:mb-12 text-black">
+                        <span class="block">WORK</span>
+                        <span class="block">WITH US</span>
+                    </h2>
+                    <p class="leading-relaxed text-sm md:text-base font-normal text-zinc-600 max-w-lg">
+                        Abrimos la agenda a eventos y colaboraciones que nos emocionen. Si tienes esa idea que te da vueltas, tráela.
+                    </p>
+                </div>
+
+                <div class="p-6 md:p-24 flex flex-col justify-center">
+                   <form class="flex flex-col gap-8 md:gap-10 w-full max-w-lg mx-auto md:mx-0">
+                      <div class="group">
+                         <input type="text" placeholder="TU NOMBRE" class="w-full bg-transparent border-b border-black/10 py-4 md:py-6 text-2xl md:text-5xl font-medium placeholder:text-zinc-200 text-black focus:outline-none focus:border-black transition-colors uppercase tracking-tight">
+                      </div>
+                      <div class="group">
+                         <input type="email" placeholder="EMAIL" class="w-full bg-transparent border-b border-black/10 py-4 md:py-6 text-2xl md:text-5xl font-medium placeholder:text-zinc-200 text-black focus:outline-none focus:border-black transition-colors uppercase tracking-tight">
+                      </div>
+                      <div class="group">
+                         <input type="text" placeholder="TU PROYECTO" class="w-full bg-transparent border-b border-black/10 py-4 md:py-6 text-2xl md:text-5xl font-medium placeholder:text-zinc-200 text-black focus:outline-none focus:border-black transition-colors uppercase tracking-tight">
+                      </div>
+                      <button type="button" class="mt-8 md:mt-12 flex items-center gap-2 text-xs font-bold uppercase tracking-widest-custom hover:opacity-60 transition-opacity w-fit text-black group">
+                            <span class="border-b border-black pb-0.5 group-hover:border-transparent transition-colors">ENVIAR CONSULTA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 stroke-[1.5]"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                      </button>
+                   </form>
+                </div>
+            </section><div class="md:px-12 md:py-32 w-full pt-12 pr-6 pb-12 pl-6">
+                    <h2 class="flex flex-col text-[9vw] md:text-[8vw] leading-[0.9] md:leading-[0.8] font-semibold tracking-tighter text-black uppercase text-left" id="statement-text">
+                        <span class="block overflow-hidden"><span class="block text-reveal-content">DESSERT IS A FORM OF</span></span>
+                        <span class="block overflow-hidden"><span class="block text-reveal-content" style="transition-delay: 0.1s">ART WE CREATE MODERN</span></span>
+                        <span class="block overflow-hidden"><span class="block text-reveal-content" style="transition-delay: 0.2s">SWEET EXPERIENCES</span></span>
+                        <span class="block overflow-hidden"><span class="block text-reveal-content" style="transition-delay: 0.3s">DESSERT STUDIO 2025*</span></span>
+                    </h2>
+                </div>
+        </div>
+
+        <!-- PRODUCTS VIEW -->
+        <div id="view-productos" class="page-view hidden w-full overflow-hidden">
+            <div class="pt-8 md:pt-16 px-6 md:px-12 pb-24 max-w-[1920px] mx-auto animate-fade-in w-full">
+                
+                <!-- Updated Title Style -->
+                <h1 class="text-6xl md:text-8xl font-semibold tracking-tighter mb-16 md:mb-24 mt-4 text-black">OUR PRODUCTS</h1>
+
+                <!-- Layout Container -->
+                <div class="product-grid-layout w-full">
+                    <!-- Desktop Categories (Updated Minimalist Style) -->
+                    <aside class="hidden lg:flex flex-col h-[calc(100vh-200px)] sticky pb-8 top-32 justify-between">
+                        <div class="">
+                            <h3 class="text-[11px] font-semibold uppercase tracking-widest-custom mb-10 text-zinc-400">Colecciones</h3>
+                            <div class="flex flex-col gap-6 items-start" id="desktop-filters">
+                                <button onclick="loadCollection('all', this)" class="text-sm font-bold uppercase tracking-widest-custom text-left transition-all text-black border-b border-black pb-0.5" data-active="true">Ver Todo</button>
+                                <button onclick="loadCollection('panes', this)" class="text-sm font-medium uppercase tracking-widest-custom text-left transition-all text-zinc-400 hover:text-black">Panes</button>
+                                <button onclick="loadCollection('bolleria', this)" class="text-sm font-medium uppercase tracking-widest-custom text-left transition-all text-zinc-400 hover:text-black">Bollería</button>
+                                <button onclick="loadCollection('tartas', this)" class="text-sm font-medium uppercase tracking-widest-custom text-left transition-all text-zinc-400 hover:text-black">Tartas</button>
+                                <button onclick="loadCollection('postres', this)" class="text-sm font-medium uppercase tracking-widest-custom text-left transition-all text-zinc-400 hover:text-black">Postres</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-baseline border-t border-black/10 pt-6">
+                            <span class="text-[11px] font-semibold uppercase tracking-widest-custom text-zinc-400">Total</span>
+                            <span class="text-sm font-semibold tracking-tight text-black" id="filtered-count">2</span>
+                        </div>
+                    </aside>
+
+                    <!-- Mobile Categories -->
+                    <div class="lg:hidden w-full mb-8 sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-sm py-4 -mx-6 px-6 border-b border-black/5">
+                        <div class="flex gap-4 overflow-x-auto scrollbar-hide" id="mobile-filters">
+                             <button onclick="loadCollection('all', this)" class="text-[11px] font-bold uppercase tracking-widest-custom whitespace-nowrap text-black border-b border-black pb-0.5 flex-shrink-0">Todo</button>
+                             <button onclick="loadCollection('panes', this)" class="text-[11px] font-medium uppercase tracking-widest-custom whitespace-nowrap text-zinc-400 hover:text-black flex-shrink-0">Panes</button>
+                             <button onclick="loadCollection('bolleria', this)" class="text-[11px] font-medium uppercase tracking-widest-custom whitespace-nowrap text-zinc-400 hover:text-black flex-shrink-0">Bollería</button>
+                             <button onclick="loadCollection('tartas', this)" class="text-[11px] font-medium uppercase tracking-widest-custom whitespace-nowrap text-zinc-400 hover:text-black flex-shrink-0">Tartas</button>
+                             <button onclick="loadCollection('postres', this)" class="text-[11px] font-medium uppercase tracking-widest-custom whitespace-nowrap text-zinc-400 hover:text-black flex-shrink-0">Postres</button>
+                        </div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 w-full" id="product-grid">
+                <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: 0ms" onclick="openProductDetail('Red Velvet Cake')">
+                    <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="Red Velvet Cake">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Red Velvet Cake</h3>
+                        <p class="text-sm mt-2 text-zinc-500 font-medium">12.00€</p>
+                    </div>
+                </div>
+            
+                <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: 50ms" onclick="openProductDetail('Lemon pie')">
+                    <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="Lemon pie">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Lemon pie</h3>
+                        <p class="text-sm mt-2 text-zinc-500 font-medium">10.00€</p>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT DETAIL VIEW -->
+        <div id="view-product-detail" class="page-view hidden w-full overflow-hidden">
+            <div class="pt-8 md:pt-16 px-6 md:px-12 pb-24 max-w-[1920px] mx-auto animate-fade-in w-full">
+                <div class="border border-black/10 w-full bg-white grid grid-cols-1 md:grid-cols-2">
+                    <div class="relative p-8 md:p-12 md:border-r border-black/10 border-b md:border-b-0 flex items-center justify-center bg-white aspect-square md:aspect-auto min-h-[300px] md:min-h-[500px] overflow-hidden">
+                        <img id="detail-image" src="" alt="Product" class="w-full h-auto object-contain mix-blend-multiply max-w-[80%] max-h-[80%] force-img-contain">
+                    </div>
+
+                    <div class="relative p-6 md:p-16 flex flex-col justify-center min-h-[400px] md:min-h-[500px]">
+                        <button onclick="router('productos')" class="absolute top-6 right-6 md:top-8 md:right-8 text-sm md:text-lg font-medium text-zinc-400 hover:text-black transition-colors tracking-tight">Back</button>
+
+                        <div class="flex-1 flex flex-col justify-center mt-12 md:mt-0">
+                            <h2 id="detail-title" class="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-black leading-[0.9] mb-4"></h2>
+                            <p id="detail-price" class="text-2xl md:text-4xl font-medium tracking-tight text-zinc-300 mb-6 md:mb-10"></p>
+                            <p id="detail-desc" class="text-base md:text-xl font-normal text-zinc-800 leading-relaxed max-w-md"></p>
+                        </div>
+
+                        <div class="mt-12 md:mt-16 flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
+                            <div id="custom-add-to-cart-container" class="w-full md:w-auto min-h-[50px] min-w-[200px]">
+                                <!-- Injected by JS -->
+                            </div>
+                            <div class="flex items-center justify-center gap-2">
+                                <button id="detail-prev-btn" class="text-lg md:text-xl font-medium text-zinc-400 hover:text-black transition-colors tracking-tight">Previus</button>
+                                <span class="text-lg text-zinc-300">/</span>
+                                <button id="detail-next-btn" class="text-lg md:text-xl font-medium text-zinc-400 hover:text-black transition-colors tracking-tight">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOSOTROS VIEW -->
+         <div id="view-nosotros" class="page-view hidden w-full overflow-hidden">
+            <div class="min-h-screen flex flex-col overflow-hidden animate-fade-in md:pt-24 bg-white pt-12 pb-12 relative justify-between">
+                
+                <div class="flex flex-col bg-white w-full z-20 pt-12 md:pt-24 pb-20 md:pb-40 relative items-center justify-center">
+                    <div class="flex flex-col animate-fade-in w-full pr-6 pl-6 items-center">
+                        <span class="text-[10px] md:text-xs font-medium uppercase tracking-[0.2em] text-zinc-400 border-b border-zinc-300 pb-1 mb-8 md:mb-24">Based in Madrid</span>
+                        <h2 class="text-4xl md:text-7xl lg:text-[7rem] font-semibold tracking-tighter text-center text-black leading-[0.9] max-w-7xl mb-8 md:mb-24">"We are Artisans with a Studio Mindset."</h2>
+                        <p class="text-sm md:text-xl leading-relaxed font-normal text-zinc-600 text-center max-w-4xl px-4"><span class="font-semibold text-black">BAKU dessert studio</span>, somos un obrador moderno con una visión clara: diseñar productos con identidad, atención al detalle y una estética cuidada.</p>
+                    </div>
+                </div>
+                
+               
+                <div class="px-6 md:px-12 flex z-10 w-full relative items-start justify-between">
+                    <span class="text-[10px] uppercase font-semibold text-zinc-500 tracking-widest-custom">Dessert Studio 2025</span>
+                    <span class="text-[10px] font-semibold uppercase tracking-widest-custom text-zinc-500">Nosotros</span>
+                </div>
+                
+                <div class="flex-1 flex flex-col md:flex-row z-20 gap-6 md:gap-0 overflow-hidden w-full mt-10 mb-10 pt-10 pb-20 relative gap-x-6 gap-y-6 items-center justify-center">
+                    <div class="group relative w-[70vw] md:w-[320px] aspect-[2/3] bg-white shadow-2xl p-3 transform md:-rotate-12 md:translate-x-12 hover:scale-105 md:hover:scale-110 hover:z-50 md:hover:rotate-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer z-10 border border-zinc-100">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6c748dea-6043-49fa-96de-7962710a4267_800w.png" class="group-hover:grayscale-0 transition-all duration-700 w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="group relative w-[70vw] md:w-[320px] aspect-[2/3] bg-white shadow-2xl p-3 transform md:-rotate-3 z-20 hover:scale-105 md:hover:scale-110 hover:z-50 md:hover:rotate-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer border border-zinc-100 md:mx-[-80px]">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100 flex items-center justify-center">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/960b9892-b484-45bd-93e1-39675b208be5_800w.png" class="bg-slate-50 w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="group relative w-[70vw] md:w-[320px] aspect-[2/3] bg-white shadow-2xl p-3 transform md:rotate-12 md:-translate-x-12 hover:scale-105 md:hover:scale-110 hover:z-50 md:hover:rotate-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer z-10 border border-zinc-100">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/003e3091-058b-4fd5-a2f6-326eb20baca2_1600w.png" class="mix-blend-multiply w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-[18vw] leading-[0.75] font-semibold tracking-tighter text-center text-black pointer-events-none select-none z-0 mt-auto md:-mb-10 mix-blend-difference relative">ABOUT US</h1>
+            </div>
+        </div>
+
+        <!-- CONTACTO VIEW -->
+        <div id="view-contacto" class="page-view hidden w-full overflow-hidden">
+            <div class="min-h-screen flex flex-col pt-16 md:pt-20">
+                <section class="grid grid-cols-1 md:grid-cols-2 flex-grow border-b border-black/10">
+                    <div class="p-8 md:p-24 flex flex-col md:border-r border-black/10 justify-center border-b md:border-b-0">
+                        <div class="mb-8 md:mb-12">
+                            <span class="text-[10px] uppercase font-semibold text-zinc-400 tracking-widest-custom block">(CONTACTO)</span>
+                        </div>
+                        <h2 class="leading-[0.85] text-5xl md:text-9xl font-semibold tracking-tighter mb-8 md:mb-12">
+                            <span class="block my-2">WORK</span>
+                            <span class="block -multi">WITH US</span>
+                        </h2>
+                        <p class="leading-relaxed text-sm md:text-base font-normal text-zinc-600 max-w-md">
+                            Abrimos la agenda a eventos y colaboraciones que nos emocionen. Si tienes esa idea que te da vueltas, tráela.
+                        </p>
+                    </div>
+                    <div class="p-6 md:p-24 flex flex-col justify-center">
+                       <form class="flex flex-col gap-8 md:gap-10 w-full max-w-lg mx-auto md:mx-0">
+                          <div class="group"><input type="text" placeholder="TU NOMBRE" class="w-full bg-transparent border-b border-black/10 py-4 md:py-6 text-2xl md:text-5xl font-medium placeholder:text-zinc-200 text-black focus:outline-none focus:border-black transition-colors uppercase tracking-tight"></div>
+                          <div class="group"><input type="email" placeholder="EMAIL" class="w-full bg-transparent border-b border-black/10 py-4 md:py-6 text-2xl md:text-5xl font-medium placeholder:text-zinc-200 text-black focus:outline-none focus:border-black transition-colors uppercase tracking-tight"></div>
+                          <div class="group"><input type="text" placeholder="TU PROYECTO" class="text-2xl md:text-5xl placeholder:text-zinc-200 focus:outline-none focus:border-black transition-colors uppercase font-medium text-black tracking-tight bg-transparent w-full border-black/10 border-b py-4 md:py-6"></div>
+                          <button type="button" class="mt-8 md:mt-12 flex items-center gap-2 text-xs font-bold uppercase tracking-widest-custom hover:opacity-60 transition-opacity w-fit text-black group">
+                                <span class="border-b border-black pb-0.5 group-hover:border-transparent transition-colors">ENVIAR CONSULTA</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 stroke-[1.5]"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                          </button>
+                       </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="text-black bg-white border-black/10 border-t w-full overflow-hidden">
+        <div class="md:px-12 md:pb-10 md:pt-10 max-w-[1920px] mr-auto ml-auto pt-12 pr-6 pb-12 pl-6">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
+                <div class="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[200px] lg:min-h-0">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aba01845-01ea-4dbd-b72f-625f32e2e7b5_1600w.png" alt="Baku Dessert Studio" class="w-full h-full object-contain object-center lg:object-left max-h-[200px] lg:max-h-[500px]">
+                </div>
+                <div class="flex-1 flex flex-col justify-between pt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-12">
+                        <div class="">
+                            <h4 class="font-bold text-sm uppercase mb-4 md:mb-6 tracking-wide">Contact</h4>
+                            <ul class="space-y-2 md:space-y-3 text-zinc-500 text-sm font-medium">
+                                <li class=""><a href="#" class="hover:text-black transition-colors">hello@baku.studio</a></li>
+                                <li class="">M/F 10am - 6pm</li>
+                                <li class="">Based in Spain</li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <h4 class="font-bold text-sm uppercase mb-4 md:mb-6 tracking-wide">Follow Us</h4>
+                            <ul class="space-y-2 md:space-y-3 text-zinc-500 text-sm font-medium">
+                                <li class=""><a href="https://www.instagram.com/baku_dessert?igsh=MTA3bzYyMmZ2b2xmOQ%3D%3D" class="hover:text-black transition-colors">Instagram</a></li>
+                                <li class=""><a href="#" class="hover:text-black transition-colors">TikTok</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-end gap-6 mt-12 md:mt-20 justify-between">
+                        <div class="max-w-xs">
+                            <p class="leading-relaxed text-sm text-zinc-500">Pastelería artesanal con visión contemporánea.</p>
+                        </div>
+                        <div class="text-zinc-400 text-sm">© 2025 Baku Dessert Studio.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC: SHOPIFY HEADLESS INTEGRATION -->
+    <script>
+        // CONFIG
+        const SHOPIFY_DOMAIN = 'tnp8d2-5z.myshopify.com';
+        const SHOPIFY_TOKEN = 'ebe8b09a2de536bda61f31a8ab0c929b';
+        
+        // STATE
+        let currentProducts = [];
+        let allProductsCache = [];
+        let cartId = localStorage.getItem('baku_cart_id');
+        let checkoutUrl = null;
+        let currentProductIndex = 0;
+
+        // ---------------------------------------------------------
+        // GRAPHQL API HELPER
+        // ---------------------------------------------------------
+        async function shopifyFetch(query, variables = {}) {
+            try {
+                const response = await fetch(`https://${SHOPIFY_DOMAIN}/api/2023-01/graphql.json`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Shopify-Storefront-Access-Token': SHOPIFY_TOKEN
+                    },
+                    body: JSON.stringify({ query, variables })
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('Network Error:', error);
+                return null;
+            }
+        }
+
+        // ---------------------------------------------------------
+        // CART LOGIC (DRAWER & SYNC)
+        // ---------------------------------------------------------
+        async function initCart() {
+            if (cartId) {
+                fetchCartDetails();
+            } else {
+                createCart();
+            }
+        }
+
+        async function createCart() {
+            const mutation = `mutation cartCreate { cartCreate { cart { id checkoutUrl } } }`;
+            const data = await shopifyFetch(mutation);
+            if (data?.data?.cartCreate?.cart) {
+                cartId = data.data.cartCreate.cart.id;
+                checkoutUrl = data.data.cartCreate.cart.checkoutUrl;
+                localStorage.setItem('baku_cart_id', cartId);
+                updateCartCountUI(0);
+            }
+        }
+
+        async function fetchCartDetails() {
+            const query = `
+                query getCart($cartId: ID!) {
+                    cart(id: $cartId) {
+                        id
+                        checkoutUrl
+                        totalQuantity
+                        cost {
+                            subtotalAmount { amount currencyCode }
+                        }
+                        lines(first: 20) {
+                            edges {
+                                node {
+                                    id
+                                    quantity
+                                    merchandise {
+                                        ... on ProductVariant {
+                                            id
+                                            title
+                                            product { title }
+                                            image { url }
+                                            price { amount }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            `;
+            const data = await shopifyFetch(query, { cartId });
+            
+            if (data?.data?.cart) {
+                const cart = data.data.cart;
+                checkoutUrl = cart.checkoutUrl;
+                updateCartCountUI(cart.totalQuantity);
+                renderCartDrawerItems(cart);
+            } else {
+                createCart(); // Expired, recreate
+            }
+        }
+
+        async function addToCart(variantId) {
+            if (!cartId) await createCart();
+            
+            const btn = document.getElementById('add-to-cart-btn');
+            const originalText = btn.innerText;
+            btn.innerText = 'ADDING...';
+            btn.disabled = true;
+
+            const mutation = `
+                mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
+                    cartLinesAdd(cartId: $cartId, lines: $lines) {
+                        cart { id }
+                        userErrors { field message }
+                    }
+                }
+            `;
+            
+            await shopifyFetch(mutation, {
+                cartId: cartId,
+                lines: [{ merchandiseId: variantId, quantity: 1 }]
+            });
+
+            await fetchCartDetails(); // Sync and update count
+            
+            btn.innerText = 'ADDED';
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                toggleCartDrawer(true); // Open drawer automatically
+            }, 500);
+        }
+
+        // New function to update quantity
+        async function updateCartItemQuantity(lineId, newQuantity) {
+            if(newQuantity < 0) return;
+            
+            // Optimistic UI update could go here, but for now we wait for server
+            const mutation = `
+                mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+                    cartLinesUpdate(cartId: $cartId, lines: $lines) {
+                        cart { id }
+                        userErrors { field message }
+                    }
+                }
+            `;
+            
+            // If quantity is 0, we could use cartLinesRemove, but Update to 0 often removes in Shopify too. 
+            // Better to check specific API behavior or just use logic:
+            if (newQuantity === 0) {
+                 // Call remove mutation if needed, or update to 0 usually removes line
+            }
+
+            await shopifyFetch(mutation, {
+                cartId: cartId,
+                lines: [{ id: lineId, quantity: newQuantity }]
+            });
+
+            await fetchCartDetails();
+        }
+
+        function updateCartCountUI(count) {
+            document.getElementById('custom-cart-count').innerText = count;
+            document.getElementById('mobile-cart-count').innerText = count;
+        }
+
+        function renderCartDrawerItems(cart) {
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            const subtotal = parseFloat(cart.cost.subtotalAmount.amount);
+            subtotalEl.innerText = subtotal.toFixed(2).replace('.', ',') + ' €';
+
+            if (cart.lines.edges.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-zinc-400 space-y-4">
+                        <p class="uppercase tracking-widest text-[10px]">Tu cesta está vacía</p>
+                        <button onclick="toggleCartDrawer(); router('productos')" class="text-black border-b border-black pb-0.5 text-[10px] uppercase tracking-widest hover:opacity-70 transition-opacity">Ir a la tienda</button>
+                    </div>`;
+                checkoutBtn.disabled = true;
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+            container.innerHTML = cart.lines.edges.map(edge => {
+                const item = edge.node;
+                const title = item.merchandise.product.title;
+                const price = parseFloat(item.merchandise.price.amount).toFixed(2);
+                const img = item.merchandise.image ? item.merchandise.image.url : 'https://placehold.co/100x100?text=No+Img';
+                
+                return `
+                <div class="flex gap-4 items-start animate-fade-in">
+                    <div class="w-20 aspect-[3/4] bg-zinc-50 flex-shrink-0 overflow-hidden border border-zinc-100">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover mix-blend-multiply">
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between min-h-[5rem]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-sm font-bold uppercase tracking-tight text-black leading-none">${title}</h3>
+                            <span class="text-sm font-medium text-black ml-2">${price} €</span>
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <div class="flex items-center border border-zinc-200 h-8">
+                                <button onclick="updateCartItemQuantity('${item.id}', ${item.quantity - 1})" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+                                </button>
+                                <span class="w-8 h-full flex items-center justify-center text-xs font-medium text-black border-l border-r border-zinc-100">${item.quantity}</span>
+                                <button onclick="updateCartItemQuantity('${item.id}', ${item.quantity + 1})" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function toggleCartDrawer(forceOpen = false) {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (forceOpen || !isOpen) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+                fetchCartDetails();
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function goToCheckout() {
+            if (checkoutUrl) window.location.href = checkoutUrl;
+        }
+
+        // ---------------------------------------------------------
+        // PRODUCT FETCHING (DYNAMIC COLLECTIONS)
+        // ---------------------------------------------------------
+        
+        // Parse Shopify Graph Node
+        function parseProduct(node) {
+            return {
+                id: node.id,
+                name: node.title,
+                price: parseFloat(node.priceRange.minVariantPrice.amount),
+                img: node.images.edges[0]?.node.url || 'https://placehold.co/600x800?text=No+Image',
+                desc: node.description || 'Sin descripción.',
+                variantId: node.variants.edges[0]?.node.id
+            };
+        }
+
+        // 1. Initial Load (All Products)
+        async function fetchAllProducts() {
+            const query = `
+                query {
+                    products(first: 50) {
+                        edges {
+                            node {
+                                id
+                                title
+                                description
+                                images(first: 1) { edges { node { url } } }
+                                priceRange { minVariantPrice { amount } }
+                                variants(first: 1) { edges { node { id } } }
+                            }
+                        }
+                    }
+                }
+            `;
+            const data = await shopifyFetch(query);
+            if (data?.data?.products) {
+                allProductsCache = data.data.products.edges.map(edge => parseProduct(edge.node));
+                currentProducts = [...allProductsCache];
+                renderProducts();
+                renderFeatured();
+            }
+        }
+
+        // 2. Fetch specific Collection by Handle
+        async function loadCollection(handle, btnElement) {
+            // Updated Minimalist Styling Logic
+            const allBtns = document.querySelectorAll('#desktop-filters button, #mobile-filters button');
+            allBtns.forEach(btn => {
+                // Reset to inactive state (grey, medium weight, no border)
+                btn.classList.remove('text-black', 'font-bold', 'border-b', 'border-black', 'pb-0.5');
+                btn.classList.add('text-zinc-400', 'font-medium');
+                if(btn.parentElement.id === 'mobile-filters') {
+                    // Mobile specific resets if needed, but classes are shared
+                }
+            });
+
+            // Set active state
+            if(btnElement) {
+                btnElement.classList.remove('text-zinc-400', 'font-medium');
+                btnElement.classList.add('text-black', 'font-bold', 'border-b', 'border-black', 'pb-0.5');
+            }
+
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '<div class="col-span-full h-40 flex items-center justify-center text-zinc-300 uppercase tracking-widest text-[10px]">Cargando...</div>';
+
+            if (handle === 'all') {
+                currentProducts = [...allProductsCache];
+                renderProducts();
+                return;
+            }
+
+            const query = `
+                query getCollection($handle: String!) {
+                    collectionByHandle(handle: $handle) {
+                        products(first: 50) {
+                            edges {
+                                node {
+                                    id
+                                    title
+                                    description
+                                    images(first: 1) { edges { node { url } } }
+                                    priceRange { minVariantPrice { amount } }
+                                    variants(first: 1) { edges { node { id } } }
+                                }
+                            }
+                        }
+                    }
+                }
+            `;
+
+            const data = await shopifyFetch(query, { handle });
+            
+            if (data?.data?.collectionByHandle) {
+                currentProducts = data.data.collectionByHandle.products.edges.map(edge => parseProduct(edge.node));
+                renderProducts();
+            } else {
+                grid.innerHTML = '<div class="col-span-full h-40 flex items-center justify-center text-zinc-300 uppercase tracking-widest text-[10px]">Sin productos</div>';
+                document.getElementById('filtered-count').innerText = "0";
+            }
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            document.getElementById('filtered-count').innerText = currentProducts.length;
+
+            if (currentProducts.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-24 text-zinc-400 text-xs tracking-widest uppercase">No hay productos disponibles</div>';
+                return;
+            }
+
+            grid.innerHTML = currentProducts.map((p, index) => `
+                <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: ${index * 50}ms" onclick="openProductDetail('${p.name.replace(/'/g, "\\'")}')">
+                    <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="${p.name}">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">${p.name}</h3>
+                        <p class="text-sm mt-2 text-zinc-500 font-medium">${p.price.toFixed(2)}€</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderFeatured() {
+            const grid = document.getElementById('home-featured-grid');
+            if(!grid || allProductsCache.length === 0) return;
+            // Show first 3 products as featured
+            grid.innerHTML = allProductsCache.slice(0, 3).map(p => `
+                <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('${p.name.replace(/'/g, "\\'")}')">
+                     <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
+                     </div>
+                     <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">${p.name}</h3></div>
+                </div>
+            `).join('');
+        }
+
+        function openProductDetail(productName) {
+            let product = currentProducts.find(p => p.name === productName) || allProductsCache.find(p => p.name === productName);
+            if (!product) return;
+            
+            currentProductIndex = currentProducts.indexOf(product);
+            if(currentProductIndex === -1) currentProductIndex = 0;
+
+            document.getElementById('detail-image').src = product.img;
+            document.getElementById('detail-title').innerText = product.name;
+            document.getElementById('detail-price').innerText = product.price.toFixed(2).replace('.', ',') + '€';
+            document.getElementById('detail-desc').innerText = product.desc;
+            
+            const container = document.getElementById('custom-add-to-cart-container');
+            container.innerHTML = `
+                <button id="add-to-cart-btn" class="w-full md:w-auto min-w-[200px] bg-black text-white font-semibold text-sm uppercase tracking-[0.15em] py-4 px-12 hover:opacity-80 transition-opacity border-none rounded-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                    ADD TO CART
+                </button>
+            `;
+            
+            document.getElementById('add-to-cart-btn').onclick = function() {
+                product.variantId ? addToCart(product.variantId) : alert('No disponible');
+            };
+
+            document.getElementById('detail-prev-btn').onclick = () => {
+                let newIndex = currentProductIndex - 1;
+                if (newIndex < 0) newIndex = currentProducts.length - 1;
+                openProductDetail(currentProducts[newIndex].name);
+            };
+            document.getElementById('detail-next-btn').onclick = () => {
+                let newIndex = currentProductIndex + 1;
+                if (newIndex >= currentProducts.length) newIndex = 0;
+                openProductDetail(currentProducts[newIndex].name);
+            };
+            router('product-detail');
+        }
+
+        // Router
+        function router(viewId) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            ['home', 'productos', 'nosotros', 'contacto'].forEach(id => {
+                const btn = document.getElementById(`nav-${id}`);
+                if(btn) {
+                    if(id === viewId) {
+                        btn.classList.remove('text-zinc-700', 'font-medium');
+                        btn.classList.add('text-black', 'font-bold');
+                    } else {
+                        btn.classList.remove('text-black', 'font-bold');
+                        btn.classList.add('text-zinc-700', 'font-medium');
+                    }
+                }
+            });
+            document.querySelectorAll('.page-view').forEach(v => {
+                v.classList.add('hidden');
+                v.classList.remove('animate-fade-in');
+            });
+            const active = document.getElementById(`view-${viewId}`);
+            if (active) {
+                active.classList.remove('hidden');
+                void active.offsetWidth; 
+                active.classList.add('animate-fade-in');
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('translate-y-full');
+        }
+
+        function initMarquee() {
+            const tracks = [document.getElementById('marquee-track')];
+            // CHANGED MARQUEE TEXT as requested
+            const message = "20% OFF SIGNATURE PRODUCTS";
+            const textContent = Array(10).fill(message).map(m => `<span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">${m}</span>`).join('<span class="mx-2 md:mx-4 opacity-50">•</span>');
+            
+            tracks.forEach(c => { 
+                if(c) c.innerHTML = textContent; 
+            });
+        }
+
+        function initHeroLoop() {
+            const imgs = ['https://images.unsplash.com/photo-1516919549054-e08258825f80?q=80&w=2560', 'https://images.unsplash.com/photo-1579306194872-64d3b7bac4c2?q=80&w=2560'];
+            const hero = document.getElementById('hero-bg-image');
+            let idx = 0;
+            if(hero) setInterval(() => { idx = (idx+1)%imgs.length; hero.src = imgs[idx]; }, 3500);
+        }
+
+        window.onload = () => {
+            lucide.createIcons();
+            initCart();
+            fetchAllProducts();
+            router('home');
+            initHeroLoop();
+            initMarquee();
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); });
+            }, { threshold: 0.1 });
+            const st = document.getElementById('statement-text');
+            if(st) obs.observe(st);
+        };
+    </script>
+
+</body></html>
