@@ -98,14 +98,14 @@ margin: 0;
                 
                 <!-- CUSTOM CART TRIGGER (Opens Drawer) -->
                 <button onclick="toggleCartDrawer()" class="text-[11px] uppercase hover:text-zinc-500 transition-colors flex gap-1 group font-medium text-zinc-700 tracking-widest-custom gap-x-1 gap-y-1 items-center">
-                    Cesta (<span id="custom-cart-count" class="group-hover:text-black transition-colors">5</span>)
+                    Cesta (<span id="custom-cart-count" class="group-hover:text-black transition-colors">0</span>)
                 </button>
             </nav>
 
             <!-- Mobile Controls -->
             <div class="flex items-center gap-4 md:hidden">
                 <button onclick="toggleCartDrawer()" class="text-[11px] uppercase font-bold tracking-widest-custom">
-                    (<span id="mobile-cart-count">5</span>)
+                    (<span id="mobile-cart-count">0</span>)
                 </button>
                 <button onclick="toggleMobileMenu()" class="p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-6 h-6 stroke-[1.5]"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
@@ -130,7 +130,7 @@ margin: 0;
         </div>
     </div>
 
-    <!-- CART DRAWER (REDESIGNED MINIMALIST) -->
+    <!-- CART DRAWER -->
     <div id="cart-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-50 opacity-0 pointer-events-none transition-opacity duration-500"></div>
     
     <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-[500px] bg-white text-black z-[60] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col shadow-2xl border-l border-zinc-200">
@@ -145,34 +145,14 @@ margin: 0;
 
         <!-- Cart Items Container -->
         <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col gap-6">
-                <div class="flex gap-4 items-start animate-fade-in">
-                    <div class="w-20 aspect-[3/4] bg-zinc-50 flex-shrink-0 overflow-hidden border border-zinc-100">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover mix-blend-multiply">
-                    </div>
-                    <div class="flex-1 flex flex-col justify-between min-h-[5rem]">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-sm font-bold uppercase tracking-tight text-black leading-none">Red Velvet Cake</h3>
-                            <span class="text-sm font-medium text-black ml-2">12.00 €</span>
-                        </div>
-                        <div class="flex items-center mt-4">
-                            <div class="flex items-center border border-zinc-200 h-8">
-                                <button onclick="updateCartItemQuantity('gid://shopify/CartLine/edef1fc7-d19a-4d43-bb66-6734a8db9663?cart=hWN6j2CA4Azs0OdzyPR3sO9L', 4)" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path></svg>
-                                </button>
-                                <span class="w-8 h-full flex items-center justify-center text-xs font-medium text-black border-l border-r border-zinc-100">5</span>
-                                <button onclick="updateCartItemQuantity('gid://shopify/CartLine/edef1fc7-d19a-4d43-bb66-6734a8db9663?cart=hWN6j2CA4Azs0OdzyPR3sO9L', 6)" class="w-8 h-full flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div></div>
+            <!-- Dynamic items will be injected here -->
+        </div>
 
         <!-- Footer -->
         <div class="border-t border-zinc-100 p-6 md:p-8 bg-white space-y-4">
             <div class="flex justify-between items-end mb-2">
                 <span class="text-xs text-zinc-500 uppercase tracking-widest">Subtotal</span>
-                <span id="cart-subtotal" class="text-xl font-semibold tracking-tight text-black">60,00 €</span>
+                <span id="cart-subtotal" class="text-xl font-semibold tracking-tight text-black">0,00 €</span>
             </div>
             <p class="text-[10px] text-zinc-400 mb-6 leading-relaxed">
                 Impuestos incluidos.
@@ -203,8 +183,9 @@ margin: 0;
 
             <!-- Philosophy -->
             <section class="grid grid-cols-1 md:grid-cols-2 bg-white w-full max-w-none">
-                <div class="flex flex-col order-2 md:pt-9 md:pb-9 md:pl-16 md:order-1 md:pr-16 pt-12 pr-6 pb-6 pl-6 justify-center">
-                    <h2 class="leading-[0.9] uppercase md:text-7xl md:mb-14 lg:text-8xl text-4xl font-semibold text-black tracking-tighter mb-6">Handmade Bread with a Modern Vision</h2>
+                <div class="flex flex-col order-2 md:pt-9 md:pb-9 md:pl-16 md:order-1 md:pr-16 pt-12 pr-6 pb-8 pl-6 justify-center">
+                    <h2 class="leading-[0.9] uppercase md:text-7xl md:mb-14 lg:text-9xl text-4xl font-semibold text-black tracking-tighter mb-6">Handmade Bread with
+a Modern Vision</h2>
                     <p class="leading-relaxed text-base md:text-xl md:mb-14 font-normal text-zinc-500 text-left max-w-lg mb-8">Exploramos la intersección entre la panadería artesanal tradicional y la estéticacontemporánea. Ingredientes puros, tiempo y diseño.</p>
                     <div class="">
                         <button onclick="router('nosotros')" class="text-xs font-semibold uppercase tracking-widest border-b-[1.5px] border-black pb-0.5 hover:text-zinc-600 hover:border-zinc-600 transition-colors">
@@ -219,18 +200,10 @@ margin: 0;
                 </div>
             </section>
             
-            <!-- Philosophy (Redesigned "Menos Azúcar") -->
-            
-
             <!-- Marquee Section -->
-            
-
-            <!-- Featured Products -->
             <section class="overflow-hidden bg-white border-black/10 border-b">
                 <div class="overflow-hidden z-20 md:py-4 bg-black w-full border-black/10 border-t border-b pt-3 pb-3 relative">
                 <div class="flex animate-marquee whitespace-nowrap text-white items-center" id="marquee-track-2">
-                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
-                        <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
                         <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
                         <span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">ARTISAN DESSERTS</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">CONTEMPORARY DESIGN</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">BAKU DESSERT STUDIO</span><span class="mx-2 md:mx-4 opacity-50">•</span><span class="mx-4 md:mx-8 font-bold tracking-widest text-sm md:text-base">20% OFF OUR SIGNATURE PRODUCTS</span> <span class="mx-2 md:mx-4 opacity-50">•</span>
                     </div>
@@ -240,28 +213,20 @@ margin: 0;
                         Una selección de nuestras piezas más representativas, elegidas por quienes más disfrutan de nuestro estudio.
                     </p>
                 </div>
+                <!-- Dynamic Grid for Signature Products -->
                 <div class="grid grid-cols-1 md:grid-cols-3 md:px-12 md:pb-24 pr-6 pb-12 pl-6 gap-x-6 gap-y-6" id="home-featured-grid">
-                <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('Red Velvet Cake')">
-                     <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
-                     </div>
-                     <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Red Velvet Cake</h3></div>
+                    <!-- Javascript will inject real products here -->
                 </div>
+            </section>
             
-                <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('Lemon pie')">
-                     <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
-                     </div>
-                     <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Lemon pie</h3></div>
-                </div>
-            </div>
-            </section><section class="md:px-12 md:pt-20 md:pb-20 bg-white w-full border-black/10 border-b pt-20 pr-6 pb-0 pl-6">
+            <section class="md:px-12 md:pt-20 md:pb-20 bg-white w-full border-zinc-950/10 border-b pt-20 pr-6 pb-16 pl-6">
               <div class="grid grid-cols-1 md:grid-cols-2 md:gap-24 w-full gap-x-12 gap-y-12 items-center">
                 <!-- Left Text -->
                 <div class="flex flex-col order-2 md:order-1 justify-center">
                     <span class="uppercase text-sm font-semibold text-zinc-400 tracking-widest mb-8">NUESTRA FILOSOFÍA</span>
-                    <h2 class="md:text-7xl lg:text-8xl leading-[0.9] text-6xl font-semibold text-black tracking-tighter mb-10">MENOS AZÚCAR,MÁS SABOR REAL</h2>
-                    <p class="leading-relaxed md:text-base text-lg font-light text-zinc-600 max-w-2xl mb-16">
+                    <h2 class="leading-[0.9] md:text-7xl lg:text-9xl text-6xl font-semibold text-black tracking-tighter mb-10">MENOS AZÚCAR,
+MÁS SABOR REAL</h2>
+                    <p class="leading-relaxed text-lg font-light text-zinc-600 max-w-2xl mb-16 md:text-lg">
                         En BAKU trabajamos con pocos ingredientes y mucha intención. Creemos en una pastelería que no oculta su sabor, sino que lo revela: frutas de temporada, harinas honestas y técnicas precisas. Cada pieza nace de un proceso elaborado esculpida a mano y pensada para que su forma sea tan pura como su sabor.
                     </p>
                     <div class="flex gap-24 border-black/5 border-t pt-10 gap-x-24 gap-y-24">
@@ -337,7 +302,7 @@ margin: 0;
 
                 <!-- Layout Container -->
                 <div class="product-grid-layout w-full">
-                    <!-- Desktop Categories (Updated Minimalist Style) -->
+                    <!-- Desktop Categories -->
                     <aside class="hidden lg:flex flex-col h-[calc(100vh-200px)] sticky pb-8 top-32 justify-between">
                         <div class="">
                             <h3 class="text-[11px] font-semibold uppercase tracking-widest-custom mb-10 text-zinc-400">Colecciones</h3>
@@ -351,7 +316,7 @@ margin: 0;
                         </div>
                         <div class="flex justify-between items-baseline border-t border-black/10 pt-6">
                             <span class="text-[11px] font-semibold uppercase tracking-widest-custom text-zinc-400">Total</span>
-                            <span class="text-sm font-semibold tracking-tight text-black" id="filtered-count">2</span>
+                            <span class="text-sm font-semibold tracking-tight text-black" id="filtered-count">0</span>
                         </div>
                     </aside>
 
@@ -368,26 +333,8 @@ margin: 0;
 
                     <!-- Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 w-full" id="product-grid">
-                <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: 0ms" onclick="openProductDetail('Red Velvet Cake')">
-                    <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="Red Velvet Cake">
+                        <!-- Items injected by JS -->
                     </div>
-                    <div class="mt-4">
-                        <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Red Velvet Cake</h3>
-                        <p class="text-sm mt-2 text-zinc-500 font-medium">12.00€</p>
-                    </div>
-                </div>
-            
-                <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: 50ms" onclick="openProductDetail('Lemon pie')">
-                    <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="Lemon pie">
-                    </div>
-                    <div class="mt-4">
-                        <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">Lemon pie</h3>
-                        <p class="text-sm mt-2 text-zinc-500 font-medium">10.00€</p>
-                    </div>
-                </div>
-            </div>
                 </div>
             </div>
         </div>
@@ -521,7 +468,7 @@ margin: 0;
                             </ul>
                         </div>
                     </div>
-                    <div class="flex flex-col md:flex-row md:items-end gap-6 mt-12 md:mt-20 justify-between">
+                    <div class="flex flex-col md:flex-row md:items-end gap-6 md:mt-20 mt-12 justify-between">
                         <div class="max-w-xs">
                             <p class="leading-relaxed text-sm text-zinc-500">Pastelería artesanal con visión contemporánea.</p>
                         </div>
@@ -588,6 +535,7 @@ margin: 0;
         }
 
         async function fetchCartDetails() {
+            // FIX: Added 'featuredImage' fallback and ensured correct image structure for Variant
             const query = `
                 query getCart($cartId: ID!) {
                     cart(id: $cartId) {
@@ -606,7 +554,7 @@ margin: 0;
                                         ... on ProductVariant {
                                             id
                                             title
-                                            product { title }
+                                            product { title featuredImage { url } }
                                             image { url }
                                             price { amount }
                                         }
@@ -661,11 +609,8 @@ margin: 0;
             }, 500);
         }
 
-        // New function to update quantity
         async function updateCartItemQuantity(lineId, newQuantity) {
             if(newQuantity < 0) return;
-            
-            // Optimistic UI update could go here, but for now we wait for server
             const mutation = `
                 mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
                     cartLinesUpdate(cartId: $cartId, lines: $lines) {
@@ -674,18 +619,10 @@ margin: 0;
                     }
                 }
             `;
-            
-            // If quantity is 0, we could use cartLinesRemove, but Update to 0 often removes in Shopify too. 
-            // Better to check specific API behavior or just use logic:
-            if (newQuantity === 0) {
-                 // Call remove mutation if needed, or update to 0 usually removes line
-            }
-
             await shopifyFetch(mutation, {
                 cartId: cartId,
                 lines: [{ id: lineId, quantity: newQuantity }]
             });
-
             await fetchCartDetails();
         }
 
@@ -717,12 +654,13 @@ margin: 0;
                 const item = edge.node;
                 const title = item.merchandise.product.title;
                 const price = parseFloat(item.merchandise.price.amount).toFixed(2);
-                const img = item.merchandise.image ? item.merchandise.image.url : 'https://placehold.co/100x100?text=No+Img';
+                // FIX: Use real image URL from Shopify data (variant image or product fallback)
+                const img = item.merchandise.image?.url || item.merchandise.product.featuredImage?.url || 'https://placehold.co/100x100?text=No+Img';
                 
                 return `
                 <div class="flex gap-4 items-start animate-fade-in">
                     <div class="w-20 aspect-[3/4] bg-zinc-50 flex-shrink-0 overflow-hidden border border-zinc-100">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover mix-blend-multiply">
+                        <img src="${img}" class="w-full h-full object-cover mix-blend-multiply">
                     </div>
                     <div class="flex-1 flex flex-col justify-between min-h-[5rem]">
                         <div class="flex justify-between items-start">
@@ -776,7 +714,8 @@ margin: 0;
                 id: node.id,
                 name: node.title,
                 price: parseFloat(node.priceRange.minVariantPrice.amount),
-                img: node.images.edges[0]?.node.url || 'https://placehold.co/600x800?text=No+Image',
+                // FIX: Prioritize featuredImage, fallback to first image edge
+                img: node.featuredImage?.url || node.images.edges[0]?.node.url || 'https://placehold.co/600x800?text=No+Image',
                 desc: node.description || 'Sin descripción.',
                 variantId: node.variants.edges[0]?.node.id
             };
@@ -784,6 +723,7 @@ margin: 0;
 
         // 1. Initial Load (All Products)
         async function fetchAllProducts() {
+            // FIX: Added 'featuredImage { url }' to the query
             const query = `
                 query {
                     products(first: 50) {
@@ -792,6 +732,7 @@ margin: 0;
                                 id
                                 title
                                 description
+                                featuredImage { url }
                                 images(first: 1) { edges { node { url } } }
                                 priceRange { minVariantPrice { amount } }
                                 variants(first: 1) { edges { node { id } } }
@@ -811,18 +752,12 @@ margin: 0;
 
         // 2. Fetch specific Collection by Handle
         async function loadCollection(handle, btnElement) {
-            // Updated Minimalist Styling Logic
             const allBtns = document.querySelectorAll('#desktop-filters button, #mobile-filters button');
             allBtns.forEach(btn => {
-                // Reset to inactive state (grey, medium weight, no border)
                 btn.classList.remove('text-black', 'font-bold', 'border-b', 'border-black', 'pb-0.5');
                 btn.classList.add('text-zinc-400', 'font-medium');
-                if(btn.parentElement.id === 'mobile-filters') {
-                    // Mobile specific resets if needed, but classes are shared
-                }
             });
 
-            // Set active state
             if(btnElement) {
                 btnElement.classList.remove('text-zinc-400', 'font-medium');
                 btnElement.classList.add('text-black', 'font-bold', 'border-b', 'border-black', 'pb-0.5');
@@ -837,6 +772,7 @@ margin: 0;
                 return;
             }
 
+            // FIX: Added 'featuredImage { url }' to the query
             const query = `
                 query getCollection($handle: String!) {
                     collectionByHandle(handle: $handle) {
@@ -846,6 +782,7 @@ margin: 0;
                                     id
                                     title
                                     description
+                                    featuredImage { url }
                                     images(first: 1) { edges { node { url } } }
                                     priceRange { minVariantPrice { amount } }
                                     variants(first: 1) { edges { node { id } } }
@@ -879,7 +816,8 @@ margin: 0;
             grid.innerHTML = currentProducts.map((p, index) => `
                 <div class="group relative flex flex-col justify-between border border-black bg-white w-full overflow-hidden aspect-[4/5] p-6 cursor-pointer hover:bg-zinc-50 transition-colors duration-300 animate-fade-in" style="animation-delay: ${index * 50}ms" onclick="openProductDetail('${p.name.replace(/'/g, "\\'")}')">
                     <div class="flex-1 flex items-center justify-center w-full h-full overflow-hidden relative">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="${p.name}">
+                        <!-- FIX: Use p.img (real URL) instead of static placeholder -->
+                        <img src="${p.img}" class="w-full h-auto object-cover max-w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110" style="max-width: 100% !important;" alt="${p.name}">
                     </div>
                     <div class="mt-4">
                         <h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">${p.name}</h3>
@@ -896,7 +834,8 @@ margin: 0;
             grid.innerHTML = allProductsCache.slice(0, 3).map(p => `
                 <div class="group cursor-pointer flex flex-col justify-between aspect-[4/5] hover:bg-zinc-50 transition-colors bg-white border-black border p-6 relative w-full h-full overflow-hidden" onclick="openProductDetail('${p.name.replace(/'/g, "\\'")}')">
                      <div class="flex-1 flex items-center justify-center p-4 w-full h-full overflow-hidden">
-                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
+                        <!-- FIX: Use p.img (real URL) instead of static placeholder -->
+                        <img src="${p.img}" class="transition-transform duration-700 group-hover:scale-110 mix-blend-multiply w-full h-full object-contain max-w-full">
                      </div>
                      <div class="mt-4"><h3 class="text-2xl md:text-3xl font-bold tracking-tighter leading-none text-black">${p.name}</h3></div>
                 </div>
@@ -972,7 +911,6 @@ margin: 0;
 
         function initMarquee() {
             const tracks = [document.getElementById('marquee-track')];
-            // CHANGED MARQUEE TEXT as requested
             const message = "20% OFF SIGNATURE PRODUCTS";
             const textContent = Array(10).fill(message).map(m => `<span class="mx-6 md:mx-10 font-bold tracking-widest text-sm md:text-base">${m}</span>`).join('<span class="mx-2 md:mx-4 opacity-50">•</span>');
             
